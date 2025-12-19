@@ -8,7 +8,7 @@ import java.io.UnsupportedEncodingException;
  */
 public class CGbkUtil {
 
-
+    //String转byte数组  GBK
     public static byte[] toGbkBytes(String data) {
         int i = 0;
         byte[] s = null;
@@ -28,7 +28,7 @@ public class CGbkUtil {
         return temp;
     }
 
-    //String转byte数组
+    //byte数组 转 String  GBK
     public static String toString(byte[] data) {
         int i;
         String s = "";

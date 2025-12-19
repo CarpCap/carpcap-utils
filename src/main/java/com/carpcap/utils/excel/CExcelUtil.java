@@ -10,6 +10,7 @@ import java.util.Iterator;
 import java.util.function.Consumer;
 
 /**
+ * poi 工具支持
  * @author CarpCap
  * @since 2025/12/3 18:06
  */
@@ -95,8 +96,4 @@ public class CExcelUtil {
     }
 
 
-    public static void main(String[] args) {
-        System.out.println(".xls".endsWith(".xls"));
-        ;
-    }
 }
