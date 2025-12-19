@@ -35,7 +35,6 @@ public class CHttpUtil {
      * 自定义okHttpClient
      *
      * @param client
-     * @return
      * @author CarpCap
      * @since 2025/12/19 17:17
      */
