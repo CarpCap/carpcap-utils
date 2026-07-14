@@ -35,7 +35,7 @@ public class CHttpUtil {
     /**
      * 自定义okHttpClient
      *
-     * @param client
+     * @param client 自定义的 OkHttpClient 实例，用于替换默认的静态客户端
      * @author CarpCap
      * @since 2025/12/19 17:17
      */
@@ -45,6 +45,11 @@ public class CHttpUtil {
 
     /**
      * 同步 GET 请求
+     *
+     * @param url     请求地址
+     * @param headers 请求头，可为null
+     * @return 响应体字符串；若响应体为空则返回null
+     * @throws IOException 请求失败或响应状态非成功时抛出
      */
     public static String get(String url, Map<String, String> headers) throws IOException {
         Request.Builder builder = new Request.Builder().url(url);
@@ -61,6 +66,10 @@ public class CHttpUtil {
 
     /**
      * 异步 GET 请求（非阻塞）
+     *
+     * @param url      请求地址
+     * @param headers  请求头，可为null
+     * @param callback 请求完成后的回调
      */
     public static void getAsync(String url, Map<String, String> headers, Callback callback) {
         Request.Builder builder = new Request.Builder().url(url);
@@ -72,6 +81,12 @@ public class CHttpUtil {
 
     /**
      * 同步 POST JSON 请求
+     *
+     * @param url     请求地址
+     * @param json    请求体JSON字符串
+     * @param headers 请求头，可为null
+     * @return 响应体字符串；若响应体为空则返回null
+     * @throws IOException 请求失败或响应状态非成功时抛出
      */
     public static String postJson(String url, String json, Map<String, String> headers) throws IOException {
         RequestBody body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), json);
@@ -89,6 +104,11 @@ public class CHttpUtil {
 
     /**
      * 异步 POST JSON 请求（推荐用于提升QPS）
+     *
+     * @param url      请求地址
+     * @param json     请求体JSON字符串
+     * @param headers  请求头，可为null
+     * @param callback 请求完成后的回调
      */
     public static void postJsonAsync(String url, String json, Map<String, String> headers, Callback callback) {
         RequestBody body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), json);

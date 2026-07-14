@@ -27,15 +27,14 @@ public class CEasyExcelUtil {
     }
 
     /**
-     * @param inputStream excel的文件流.
-     * @param sheetIndex  第几个sheet.
-     * @param skipTopRows 跳过最上面行数量.
-     * @param consumer    consumer
+     * 流式解析 Excel，大幅降低内存使用
+     *
+     * @param inputStream excel的文件流
+     * @param sheetIndex  第几个sheet
+     * @param skipTopRows 跳过最上面行数量
+     * @param consumer    每行数据的回调处理器，key为列索引，value为该列单元格的字符串值
      * @author CarpCap
      * @since 2025/12/3 18:06
-     */
-    /**
-     * 流式解析 Excel，大幅降低内存使用
      */
     public static void parseExcel(InputStream inputStream, int sheetIndex, int skipTopRows, Consumer<Map<Integer, String>> consumer) {
         try {

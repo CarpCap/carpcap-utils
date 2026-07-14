@@ -9,7 +9,8 @@ public class CUnicodeUtil {
     /**
      * 每个字节转成16进制,方法1
      *
-     * @param bytes
+     * @param bytes 待转换的字节数组
+     * @return 转换后的16进制字符串
      */
     private static String toHex(byte[] bytes) {
         StringBuilder sb = new StringBuilder(bytes.length * 2);
@@ -25,7 +26,8 @@ public class CUnicodeUtil {
      * 处理 MsgContent
      * 因为bytes中每2个元素分别对应了高4位和低4位，转成16进制字符 然后将这些字符转成String就是内容了
      *
-     * @param bytes
+     * @param bytes 待转换的字节数组，长度必须为偶数
+     * @return 转换后的字符串；如果转换过程中发生异常则返回null
      * @author CarpCap
      * @since 2022/3/28 14:26
      */
