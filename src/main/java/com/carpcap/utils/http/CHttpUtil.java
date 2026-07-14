@@ -1,12 +1,14 @@
 package com.carpcap.utils.http;
 
 import okhttp3.*;
+
 import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
  * 高性能 OkHttp 工具类（线程安全、连接池可复用）
+ *
  * @author CarpCap
  */
 public class CHttpUtil {
@@ -30,7 +32,6 @@ public class CHttpUtil {
     }
 
 
-
     /**
      * 自定义okHttpClient
      *
@@ -38,7 +39,7 @@ public class CHttpUtil {
      * @author CarpCap
      * @since 2025/12/19 17:17
      */
-    public void resetClient(OkHttpClient client){
+    public static void resetClient(OkHttpClient client) {
         CHttpUtil.client = client;
     }
 

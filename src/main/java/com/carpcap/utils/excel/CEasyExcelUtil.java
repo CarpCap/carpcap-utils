@@ -10,6 +10,7 @@ import java.util.function.Consumer;
 
 /**
  * EasyExcel支持 流式 内存占用低
+ *
  * @author CarpCap
  * @since 2025/12/19 16:43
  */
@@ -47,7 +48,7 @@ public class CEasyExcelUtil {
                     }
 
                     // 2. 检查前几列是否有数据（模拟你原有的 str.isEmpty 判断）
-                    String value = data.get(0) + data.get(1) + data.get(2) + data.get(3) + data.get(5) + data.get(6);
+                    String value = data.get(0) + data.get(1) + data.get(2) + data.get(3) + data.get(4) + data.get(5) + data.get(6);
                     boolean hasData = value != null && !value.trim().isEmpty();
 
 

@@ -11,6 +11,7 @@ import java.util.function.Consumer;
 
 /**
  * poi 工具支持
+ *
  * @author CarpCap
  * @since 2025/12/3 18:06
  */
@@ -28,19 +29,17 @@ public class CExcelUtil {
     }
 
     /**
-     * @param ete         文件类型 .
-     * @param inputStream excel的文件流.
-     * @param sheetIndex  第几个sheet.
-     * @param skipTopRows 跳过最上面行数量.
+     * @param ete            文件类型 .
+     * @param inputStream    excel的文件流.
+     * @param sheetIndex     第几个sheet.
+     * @param skipTopRows    跳过最上面行数量.
      * @param skipBottomRows 跳过最下面行数量.
-     * @param consumer    consumer
+     * @param consumer       consumer
      * @author CarpCap
      * @since 2025/12/3 18:06
      */
     public static void parseExcelIterator(CExcelTypeEnum ete, InputStream inputStream, int sheetIndex, int skipTopRows, int skipBottomRows, Consumer<Iterator<Cell>> consumer) {
-
-        try {
-            Workbook workbook = parseFile(inputStream, ete);
+        try (Workbook workbook = parseFile(inputStream, ete)) {
             Sheet sheet = workbook.getSheetAt(sheetIndex);
             int rows = sheet.getLastRowNum() - skipBottomRows;
             for (int i = skipTopRows; i <= rows; i++) {
@@ -77,8 +76,8 @@ public class CExcelUtil {
 
 
     private static Workbook parseFile(InputStream inputStream, CExcelTypeEnum ete) throws Exception {
-        try (Workbook workbook = ete == CExcelTypeEnum.XLS ? new HSSFWorkbook(inputStream) : new XSSFWorkbook(inputStream)) {
-            return workbook;
+        try {
+            return ete == CExcelTypeEnum.XLS ? new HSSFWorkbook(inputStream) : new XSSFWorkbook(inputStream);
         } finally {
             if (inputStream != null) {
                 inputStream.close();
